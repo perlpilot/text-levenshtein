@@ -1,8 +1,7 @@
 #!/usr/bin/perl
 
-
 use Text::Levenshtein qw(distance);
 
-my $d = distance("foo","bar");
-
-print "$d\n";
+for $w (qw<foo bar baz blat fox moo oof>) {
+    print  "$w  " . distance("foo",$w) . "\n";
+}

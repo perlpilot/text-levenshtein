@@ -4,7 +4,8 @@ BEGIN { @*INC.unshift: 'lib'; }
 use v6;
 use Text::Levenshtein;
 
-my $d = distance("foo","bar");
-$d.say;
+for <foo bar baz blat fox moo oof> -> $w {
+    say $w ~ " " ~ distance("foo",$w);
+}
 
 # vim: ft=perl6
