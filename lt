@@ -1,0 +1,10 @@
+#!/usr/bin/perl6
+
+BEGIN { @*INC.unshift: 'lib'; }
+use v6;
+use Text::Levenshtein;
+
+my $d = distance("foo","bar");
+$d.say;
+
+# vim: ft=perl6

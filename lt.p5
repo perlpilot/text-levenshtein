@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+
+use Text::Levenshtein qw(distance);
+
+my $d = distance("foo","bar");
+
+print "$d\n";
