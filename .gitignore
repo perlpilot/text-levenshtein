@@ -1,0 +1,5 @@
+# ignore ufo-generated file
+Makefile
+
+# ignore make-generated file
+lib/Text/Levenshtein.pir
