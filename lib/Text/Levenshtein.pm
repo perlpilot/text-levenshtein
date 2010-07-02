@@ -1,6 +1,6 @@
 module Text::Levenshtein;
 
-sub distance is export ($s, $t) {
+sub distance ($s, $t) is export {
     return 0 if $s eq $t;
 
     my @result;
