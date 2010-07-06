@@ -1,7 +1,0 @@
-#!/usr/bin/perl
-
-use Text::Levenshtein qw(distance);
-
-for $w (qw<foo bar baz blat fox moo oof>) {
-    print  "$w  " . distance("foo",$w) . "\n";
-}
