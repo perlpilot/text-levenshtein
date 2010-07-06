@@ -9,14 +9,6 @@ sub distance ($s, $t) is export {
     my $m = $t.chars;
     my @d;    
 
-    # Work around rakudo bug 
-    for 0..$n -> $i {
-        for 0..$m -> $j {
-            @d[$i] = [];
-            @d[$i][$j] = 0;
-        }
-    }
-
     @d[0][0] = 0;
     for 1..$n -> $i {
         @d[$i][0] = $i;
