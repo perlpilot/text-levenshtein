@@ -1,6 +1,10 @@
 module Text::Levenshtein;
 
-sub distance ($s, $t) is export {
+multi sub distance ($s, @t) is export {
+    gather for @t -> $t { take distance($s,$t) }
+}
+
+multi sub distance ($s, $t) is export {
     return 0 if $s eq $t;
 
     my @result;
@@ -12,12 +16,12 @@ sub distance ($s, $t) is export {
     @d[0][0] = 0;
     for 1..$n -> $i {
         @d[$i][0] = $i;
-        return $i if $i != $n && $s.substr($i) eq $t.substr($i);
+        return $i if $i != $n && ($s.substr($i) // '') eq ($t.substr($i) // '');
     }
 
     for 1..$m -> $j {
         @d[0][$j] = $j;
-        return $j if $j != $m && $s.substr($j) eq $t.substr($j);
+        return $j if $j != $m && ($s.substr($j) // '') eq ($t.substr($j) // '');
     }
 
     for 1..$n -> $i {

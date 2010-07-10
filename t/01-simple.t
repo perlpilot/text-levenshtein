@@ -1,7 +1,7 @@
 use v6;
 use Text::Levenshtein;
 use Test;
-plan 7;
+plan 8;
 
 is( distance("foo","foo") , 0, 'words are no distrance from themselves' );
 is( distance("foo","bar") , 3, 'completely different word - same length' );
@@ -13,3 +13,5 @@ is( distance("fox","foo") , 1, 'single letter change' );
 
 is( distance("foo","moo") , 1, 'single letter change' );
 is( distance("foo","oof") , 2, 'double letter change' );
+
+is( ~distance("foo", <food foo mood>), "1 0 2", "array" );
